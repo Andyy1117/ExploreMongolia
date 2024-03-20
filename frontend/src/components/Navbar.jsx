@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../assets/ExploreMongolia.svg';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
@@ -6,6 +6,22 @@ import { IoCloseOutline } from "react-icons/io5";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);  // State for menu visibility
   const [logo, showLogo] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);  // Toggle menu visibility on click
@@ -13,9 +29,9 @@ const Navbar = () => {
   };
 
   return (
-    <header className='sticky top-0 z-50 mb-4'>
+    <header className={`sticky top-0 z-50 mb-4 ${scrolled ? 'bg-white' : 'bg-transparent'}`}>
       <nav className='flex justify-between items-center h-20 px-4'>
-        <img onClick={toggleMenu} className={logo ? 'hidden' : 'block'} src={Logo} alt='ExploreMongolia.svg' width={160} height={40} />
+        <img onClick={toggleMenu} className={logo ? 'hidden' : 'block, ml-4'} src={Logo} alt='ExploreMongolia.svg' width={160} height={40} />
         <ul className='flex space-x-4 hidden md:flex'> {/* Hidden on mobile */}
           <li>
             <button className='text-black bg-transparent px-4 py-2 rounded-full'>
@@ -72,7 +88,6 @@ const Navbar = () => {
                         </button>
                     </li>
                 </div>
-                
             </ul>
         </div>
       </nav>

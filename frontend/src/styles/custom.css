@@ -1,0 +1,12 @@
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+    font-size: 4rem;
+    font-weight: lighter;
+    padding-left: 2rem;
+    font-family: 'Roboto', sans-serif;
+  }
