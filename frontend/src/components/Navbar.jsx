@@ -8,6 +8,10 @@ const Navbar = () => {
   const [logo, showLogo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  /**
+   * The useEffect hook in React is used to monitor the scroll position of the window and update a
+   * state variable based on whether the user has scrolled or not.
+   */
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -30,7 +34,7 @@ const Navbar = () => {
 
   return (
     <header className={`sticky top-0 z-50 mb-4 ${scrolled ? 'bg-white' : 'bg-transparent'}`}>
-      <nav className='flex justify-between items-center h-20 px-4'>
+      <nav className='flex justify-between items-center h-20 px-4 border-b'>
         <img onClick={toggleMenu} className={logo ? 'hidden' : 'block, ml-4'} src={Logo} alt='ExploreMongolia.svg' width={160} height={40} />
         <ul className='flex space-x-4 hidden md:flex'> {/* Hidden on mobile */}
           <li>
