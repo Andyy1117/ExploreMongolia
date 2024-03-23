@@ -3,13 +3,41 @@ import HeroImage from '../assets/Hero1.jpg';
 import HeroText from '../assets/Text1.svg';
 import SampleVideo from '../assets/sample.mp4';
 import '../styles/custom.css';
+import { motion } from 'framer-motion';
+
+
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 50,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.05
+    }
+  }
+}
+
 
 const Landing = () => {
   return (
     <div className="landing flex flex-col items-center min-h-screen px-8">
 
       {/* Header and search bar */}
-      <h1 className="text-transparent bg-clip-text text-5xl font-black text-center mb-8 bg-gradient-to-r from-black to-indigo-700">WHERE TO?</h1>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{once: true, amount: 0.5}}
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: {opacity: 0, x: -50},
+          visible: {opacity: 1, x: 0,}
+        }}>
+        <h1 className="text-transparent bg-clip-text text-5xl font-black text-center mb-8 bg-gradient-to-r from-black to-indigo-700">WHERE TO?</h1>
+      </motion.div>
+      {/* Search bar */}
       <div className='flex w-full items-center justify-center mb-4 mt-4'>
         <input
           type="text"
@@ -22,7 +50,14 @@ const Landing = () => {
       </div>
 
       {/* Hero section */}
-      <div className="hero-container overflow-hidden relative">
+      <motion.div className="hero-container overflow-hidden relative"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+        >
         <img
           src={HeroImage} 
           alt = "Hero"
@@ -38,11 +73,41 @@ const Landing = () => {
                     <br/> extraordinary destinations.
             </p>
           </div>
+          <div className='flex mt-4'>
+            <button className="bg-black hover:bg-gray-500 text-white text-sm font-bold  py-2 px-4 rounded mr-4 w-52">Book</button>
+            <button className="bg-white hover:bg-gray-500 text-black text-sm font-bold py-2 px-4 rounded w-56">Explore</button>
+          </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Promotional video section */}
+      <motion.div className="video-container mt-8 w-full"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+      >
+        <h2 className="text-2xl font-semibold mb-4">Watch Our Promotional Video</h2>
+        <video controls className="w-full h-full rounded-2xl"
+          src={SampleVideo}
+          autoPlay
+          loop
+          muted
+          >
+        </video>
+      </motion.div>
 
       {/* Newsletter subscription */}
-      <div className="newsletter-container w-full relative mt-8 py-4 bg-black flex rounded-2xl">
+      <motion.div className="newsletter-container w-full relative mt-8 py-4 bg-black flex rounded-2xl"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+      >
         <div className="newsletter-text-container w-1/2 p-8">
           <h2 className="text-xl font-semibold mb-4 text-white">Join our newsletter</h2>
           <p className="text-sm text-white">Sign up for weekly content and be the first to know about our special offers and promotions.</p>
@@ -53,23 +118,12 @@ const Landing = () => {
             placeholder="Enter your email"
             className="newsletter-input w-full p-2 border rounded-md shadow-sm mr-2"
           />
-          <button className="newsletter-btn bg-black-500 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded">
+          <button className="newsletter-btn bg-indigo-700 hover:bg-indigo-300 text-white font-bold py-2 px-4 rounded">
             Subscribe
           </button>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Promotional video section */}
-      <div className="video-container mt-8 w-full">
-        <h2 className="text-2xl font-semibold mb-4">Watch Our Promotional Video</h2>
-        <video controls className="w-full h-full rounded-2xl"
-          src={SampleVideo}
-          autoPlay
-          loop
-          muted
-          >
-        </video>
-      </div>
 
     </div>
     
