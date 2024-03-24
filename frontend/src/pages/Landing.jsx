@@ -1,6 +1,8 @@
 import React from 'react';
 import HeroImage from '../assets/Hero1.jpg';
 import HeroText from '../assets/Text1.svg';
+import Promo from '../assets/Promo1.webp';
+import Blog from '../assets/Blog1.jpg';
 import SampleVideo from '../assets/sample.mp4';
 import '../styles/custom.css';
 import { motion } from 'framer-motion';
@@ -15,7 +17,8 @@ const fadeInAnimationVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05
+      delay: 0.05,
+      duration: 1
     }
   }
 }
@@ -23,7 +26,7 @@ const fadeInAnimationVariants = {
 
 const Landing = () => {
   return (
-    <div className="landing flex flex-col items-center min-h-screen px-8">
+    <div className="landing flex flex-col items-center min-h-screen px-8 pb-32">
 
       {/* Header and search bar */}
       <motion.div
@@ -89,7 +92,7 @@ const Landing = () => {
           once: true,
         }}
       >
-        <h2 className="text-2xl font-semibold mb-4">Watch Our Promotional Video</h2>
+        <h2 className="text-2xl font-bold mb-4">Watch Our Promotional Video</h2>
         <video controls className="w-full h-full rounded-2xl"
           src={SampleVideo}
           autoPlay
@@ -123,6 +126,90 @@ const Landing = () => {
           </button>
         </div>
       </motion.div>
+
+      {/* Sign up promotion section */}
+      <motion.div className="signup-promo-container relative w-full h-96 mt-8 overflow-hidden flex"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+      >
+        {/* Background image */}
+        <img src={Promo} alt="Promo Background" className="w-1/2 h-full object-cover rounded-2xl" />
+
+        {/* Content */}
+        <div className="signup-promo-content flex flex-col justify-center items-center w-1/2 p-8">
+          <h2 className="text-3xl font-bold mb-4 text-black">Create Unforgettable Memories</h2>
+          <h2 className="text-3xl font-bold mb-4 text-black">Book now!</h2>
+          <p className="text-lg text-gray-900 mb-4 text-center">Experience the thrill of exploring new cultures, indulging in delicious cuisines, and creating unforgettable memories. 
+                                                                  Our platform offers a wide range of destinations, activities, and accommodations to cater to every traveler's needs. Start planning your next adventure today!</p>
+          <form className="flex flex-col items-center">
+            <input type="email" placeholder="Enter your email" className="signup-input mb-4 p-2 border rounded-md shadow-sm" />
+            <button type="submit" className="signup-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Sign Up</button>
+          </form>
+        </div>
+      </motion.div>
+
+      {/* Blog section */}
+      <div className="blog-section-container flex flex-row items-start justify-between mt-8">
+      {/* Left big container */}
+      <motion.div className="big-container relative flex-1/2 w-1/2 h-96 mr-4"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+      >
+        {/* Background image */}
+        <div className="big-container-image h-1/2 overflow-hidden rounded-t-lg">
+          <img src={Blog} alt="Background" className="w-full h-full object-cover" />
+        </div>
+
+        {/* Content */}
+        <div className="big-container-content p-8 bg-gray-300 rounded-b-lg overflow-y-auto">
+          <h2 className="text-3xl font-bold mb-4 text-black">Discover the Untamed Beauty of Mongolia</h2>
+          <p className="text-lg text-gray-900 mb-4 text-center">Embark on an unforgettable journey through the untamed landscapes of Mongolia. From vast steppes to rugged mountains, immerse yourself in the rich cultural tapestry of this fascinating country. Experience the nomadic way of life, encounter diverse wildlife, and marvel at the ancient traditions that have shaped this land for centuries.</p>
+          {/* Add your form or any other content here */}
+        </div>
+      </motion.div>
+
+      {/* Right small containers */}
+      <motion.div className="flex flex-col justify-between">
+        <div className="small-container mb-4"
+          variants={fadeInAnimationVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{
+            once: true,
+          }}
+        >
+          {/* Content for the first small container */}
+          <div className="p-4 bg-gray-200 rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Small Container 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        
+        <div className="small-container"
+          variants={fadeInAnimationVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{
+            once: true,
+          }}
+        >
+          {/* Content for the second small container */}
+          <div className="p-4 bg-gray-200 rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Small Container 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+
 
 
     </div>
