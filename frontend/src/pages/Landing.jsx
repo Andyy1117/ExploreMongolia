@@ -155,30 +155,7 @@ const Landing = () => {
       {/* Blog section */}
       <div className="blog-section-container flex flex-row items-start justify-between mt-8">
       {/* Left big container */}
-      <motion.div className="big-container relative flex-1/2 w-1/2 h-96 mr-4"
-        variants={fadeInAnimationVariants}
-        initial="initial"
-        whileInView="animate"
-        viewport={{
-          once: true,
-        }}
-      >
-        {/* Background image */}
-        <div className="big-container-image h-1/2 overflow-hidden rounded-t-lg">
-          <img src={Blog} alt="Background" className="w-full h-full object-cover" />
-        </div>
-
-        {/* Content */}
-        <div className="big-container-content p-8 bg-gray-300 rounded-b-lg overflow-y-auto">
-          <h2 className="text-3xl font-bold mb-4 text-black">Discover the Untamed Beauty of Mongolia</h2>
-          <p className="text-lg text-gray-900 mb-4 text-center">Embark on an unforgettable journey through the untamed landscapes of Mongolia. From vast steppes to rugged mountains, immerse yourself in the rich cultural tapestry of this fascinating country. Experience the nomadic way of life, encounter diverse wildlife, and marvel at the ancient traditions that have shaped this land for centuries.</p>
-          {/* Add your form or any other content here */}
-        </div>
-      </motion.div>
-
-      {/* Right small containers */}
-      <motion.div className="flex flex-col justify-between">
-        <div className="small-container mb-4"
+        <motion.div className="big-container relative flex-1/2 w-1/2 h-96 mr-4"
           variants={fadeInAnimationVariants}
           initial="initial"
           whileInView="animate"
@@ -186,32 +163,52 @@ const Landing = () => {
             once: true,
           }}
         >
-          {/* Content for the first small container */}
-          <div className="p-4 bg-gray-200 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Small Container 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          {/* Background image */}
+          <div className="big-container-image h-1/2 overflow-hidden rounded-t-lg">
+            <img src={Blog} alt="Background" className="w-full h-full object-cover" />
           </div>
-        </div>
-        
-        <div className="small-container"
-          variants={fadeInAnimationVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{
-            once: true,
-          }}
-        >
-          {/* Content for the second small container */}
-          <div className="p-4 bg-gray-200 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Small Container 2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          {/* Content */}
+          <div className="big-container-content p-8 bg-gray-300 rounded-b-lg overflow-y-auto">
+            <h2 className="text-3xl font-bold mb-4 text-black">Discover the Untamed Beauty of Mongolia</h2>
+            <p className="text-lg text-gray-900 mb-4 text-center">Embark on an unforgettable journey through the untamed landscapes of Mongolia. From vast steppes to rugged mountains, immerse yourself in the rich cultural tapestry of this fascinating country. Experience the nomadic way of life, encounter diverse wildlife, and marvel at the ancient traditions that have shaped this land for centuries.</p>
+            {/* Add your form or any other content here */}
           </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
 
-
-
+        {/* Right small containers */}
+        <motion.div className="flex-col justify-between">
+          <div className="small-container mb-4"
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{
+              once: true,
+            }}
+          >
+            {/* Content for the first small container */}
+            <div className="p-4 bg-gray-200 rounded-lg">
+              <h2 className="text-xl font-bold mb-4">Small Container 1</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          
+          <div className="small-container"
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{
+              once: true,
+            }}
+          >
+            {/* Content for the second small container */}
+            <div className="p-4 bg-gray-200 rounded-lg">
+              <h2 className="text-xl font-bold mb-4">Small Container 2</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
     
   );
