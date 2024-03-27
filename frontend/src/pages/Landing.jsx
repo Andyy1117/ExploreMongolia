@@ -1,11 +1,15 @@
 import React from 'react';
+import Accordion from '../components/Accordian';
+import { motion } from 'framer-motion';
+
 import HeroImage from '../assets/Hero1.jpg';
 import HeroText from '../assets/Text1.svg';
 import Promo from '../assets/Promo1.webp';
 import Blog from '../assets/Blog1.jpg';
 import SampleVideo from '../assets/sample.mp4';
+
 import '../styles/custom.css';
-import { motion } from 'framer-motion';
+
 
 
 const fadeInAnimationVariants = {
@@ -38,8 +42,9 @@ const Landing = () => {
           hidden: {opacity: 0, x: -50},
           visible: {opacity: 1, x: 0,}
         }}>
-        <h1 className="text-transparent bg-clip-text text-5xl font-black text-center mb-8 bg-gradient-to-r from-black to-indigo-700">WHERE TO?</h1>
+        <h1 className="text-transparent bg-clip-text text-5xl mt-8 font-black text-center mb-4 bg-gradient-to-r from-black to-indigo-700">WHERE TO?</h1>
       </motion.div>
+      
       {/* Search bar */}
       <div className='flex w-full items-center justify-center mb-4 mt-4'>
         <input
@@ -153,62 +158,64 @@ const Landing = () => {
       </motion.div>
 
       {/* Blog section */}
-      <div className="blog-section-container flex flex-row items-start justify-between mt-8">
-      {/* Left big container */}
-        <motion.div className="big-container relative flex-1/2 w-1/2 h-96 mr-4"
-          variants={fadeInAnimationVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{
-            once: true,
-          }}
-        >
-          {/* Background image */}
-          <div className="big-container-image h-1/2 overflow-hidden rounded-t-lg">
-            <img src={Blog} alt="Background" className="w-full h-full object-cover" />
+      <div className="grid grid-cols-4 gap-4 mt-8 h-96">  {/* Set up a 12-column grid */}
+        {/* Large Image (spans 6 columns) */}
+        <button className="col-span-2 h-96 bg-gray-200 rounded-lg overflow-hidden shadow-md hover:bg-gray-100 transition duration-300">
+          <div className='flex flex-col items-center justify-between bg-transparent'>
+            <p className='text-gray-700 bg-transparent'>This is a travel blog</p> 
           </div>
+          <img src={Blog} alt="Large" className="w-full h-full object-cover" /> 
+        </button>
 
-          {/* Content */}
-          <div className="big-container-content p-8 bg-gray-300 rounded-b-lg overflow-y-auto">
-            <h2 className="text-3xl font-bold mb-4 text-black">Discover the Untamed Beauty of Mongolia</h2>
-            <p className="text-lg text-gray-900 mb-4 text-center">Embark on an unforgettable journey through the untamed landscapes of Mongolia. From vast steppes to rugged mountains, immerse yourself in the rich cultural tapestry of this fascinating country. Experience the nomadic way of life, encounter diverse wildlife, and marvel at the ancient traditions that have shaped this land for centuries.</p>
-            {/* Add your form or any other content here */}
-          </div>
-        </motion.div>
+        {/* Card Container (spans 6 columns, fixed height) */}
+        <div className="col-span-2 flex flex-col gap-4 pb-4 h-96 overflow-hidden">  {/* Fixed height with overflow handling */}
 
-        {/* Right small containers */}
-        <motion.div className="flex-col justify-between">
-          <div className="small-container mb-4"
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-          >
-            {/* Content for the first small container */}
-            <div className="p-4 bg-gray-200 rounded-lg">
-              <h2 className="text-xl font-bold mb-4">Small Container 1</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          
-          <div className="small-container"
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-          >
-            {/* Content for the second small container */}
-            <div className="p-4 bg-gray-200 rounded-lg">
-              <h2 className="text-xl font-bold mb-4">Small Container 2</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-        </motion.div>
+          {/* Read More Box */}
+          <button className="bg-white rounded-lg shadow-md h-1/2 p-4 hover:bg-gray-100 transition duration-300">
+            <h2 className="text-xl font-bold mb-2">Read More</h2>
+            <p className="text-sm">This is the content for the "Read More" box. You can adjust the font size (text-sm) to prevent content overflow.</p>  {/* Consider adjusting font size */}
+          </button>
+
+          {/* CTA - Write Your Own Blog */}
+          <button className="bg-white rounded-lg shadow-md h-1/2 p-4 hover:bg-gray-100 transition duration-300">
+            <h2 className="text-xl font-bold mb-2">Write Your Own Blog</h2>
+            <p className="text-sm">This is the content encouraging users to write their own blog.</p>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">Write Now</button>
+          </button>
+        </div>
       </div>
+
+      <motion.div className='p-4 mt-8 bg-gray-200 rounded-2xl'
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+      >
+        <Accordion
+        title="How do I book?"
+        answer="To book accommodations, simply navigate to our website and enter your destination, 
+        travel dates, and preferences. Browse through the available options, select the one that suits you best, 
+        and proceed with the booking process by providing your details and payment information."
+        />
+        <Accordion
+        title="Are there any special deals or discounts available for booking multiple services together?"
+        answer="Yes, we offer special discounts and deals for booking multiple services such as flights, accommodations,
+         and activities together. Keep an eye out for our bundled packages and promotions to maximize your savings on your
+          travel expenses."
+        />
+        <Accordion 
+        title="What is your cancellation policy for bookings made through your site?" 
+        answer="Our cancellation policy varies depending on the type of service and provider. Generally, we offer flexible 
+        cancellation options for most bookings, allowing you to cancel or modify your reservation within a specified 
+        timeframe without incurring any penalties. Please refer to the terms and conditions of your booking or contact our 
+        customer support for specific details." />
+      </motion.div>
+
+
+
+
     </div>
     
   );
