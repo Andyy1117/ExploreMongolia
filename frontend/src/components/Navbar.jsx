@@ -35,8 +35,8 @@ const Navbar = () => {
   return (
     <header className={`sticky top-0 z-50 mb-4 ${scrolled ? 'bg-white' : 'bg-transparent'}`}>
       <nav className='flex justify-between items-center h-20 px-4 border-b'>
-        <img onClick={toggleMenu} className={logo ? 'hidden' : 'block, ml-4'} src={Logo} alt='ExploreMongolia.svg' width={160} height={40} />
-        <ul className='flex space-x-4 hidden md:flex'> {/* Hidden on mobile */}
+        <img onClick={toggleMenu} className={logo ? 'hidden' : 'block, ml-20'} src={Logo} alt='ExploreMongolia.svg' width={160} height={40} />
+        <ul className='flex space-x-4 hidden md:flex mr-16'> {/* Hidden on mobile */}
           <li>
             <button className='text-black bg-transparent px-4 py-2 rounded-full'>
                 Tours

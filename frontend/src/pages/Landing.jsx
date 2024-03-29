@@ -6,6 +6,10 @@ import HeroImage from '../assets/Hero1.jpg';
 import HeroText from '../assets/Text1.svg';
 import Promo from '../assets/Promo1.webp';
 import Blog from '../assets/Blog1.jpg';
+import C1 from '../assets/C1.jpg';
+import C2 from '../assets/C2.jpg';
+import C3 from '../assets/C3.jpg';
+import C4 from '../assets/C4.jpg';
 import SampleVideo from '../assets/sample.mp4';
 
 import '../styles/custom.css';
@@ -30,7 +34,7 @@ const fadeInAnimationVariants = {
 
 const Landing = () => {
   return (
-    <div className="landing flex flex-col items-center min-h-screen px-8 pb-32">
+    <div className="landing flex flex-col items-center min-h-screen px-24 pb-32">
 
       {/* Header and search bar */}
       <motion.div
@@ -42,7 +46,7 @@ const Landing = () => {
           hidden: {opacity: 0, x: -50},
           visible: {opacity: 1, x: 0,}
         }}>
-        <h1 className="text-transparent bg-clip-text text-5xl mt-8 font-black text-center mb-4 bg-gradient-to-r from-black to-indigo-700">WHERE TO?</h1>
+        <h1 className="text-transparent bg-clip-text text-5xl mt-8 font-black text-center mb-4 bg-gradient-to-r from-black to-indigo-700">Where to?</h1>
       </motion.div>
       
       {/* Search bar */}
@@ -88,6 +92,68 @@ const Landing = () => {
         </div>
       </motion.div>
 
+      {/* Featured Destinations */}
+      <motion.div className='destinations mt-8
+        initial="hidden"
+        whileInView="visible"
+        viewport={{once: true, amount: 0.5}}
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: {opacity: 0, x: -50},
+          visible: {opacity: 1, x: 0,}
+        }}>'
+        >
+      <h2 className='flex items-center justify-center text-2xl font-bold mb-4'>Featured Destinations</h2>
+        
+        <div className='max-w-[1640px] mx-auto p-4 py-4 grid md:grid-cols-4 gap-6'>
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden object-cover' style={{ width: '300px', height: '300px' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white place-items-baseline'>
+              <p className='font-bold text-2xl px-2 pt-4'>Gobi Desert</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C1}
+                alt="" />
+          </div>
+
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden' style={{ width: '300px', height: '300px', paddingBottom: '100%' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white'>
+              <p className='font-bold text-2xl px-2 pt-4'>Khuvsgul Lake</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C2}
+                alt="" />
+          </div>
+
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden' style={{ width: '300px', height: '300px' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white'>
+              <p className='font-bold text-2xl px-2 pt-4'>Altai Mountains</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C3}
+                alt="" />
+          </div>
+
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden' style={{ width: '300px', height: '300px' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white'>
+              <p className='font-bold text-2xl px-2 pt-4'>Terelj National Park</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C4}
+                alt="" />
+          </div>
+
+        </div>
+      </motion.div>
+
+
       {/* Promotional video section */}
       <motion.div className="video-container mt-8 w-full"
         variants={fadeInAnimationVariants}
@@ -97,7 +163,7 @@ const Landing = () => {
           once: true,
         }}
       >
-        <h2 className="text-2xl font-bold mb-4">Watch Our Promotional Video</h2>
+        <h2 className="flex items-center justify-center text-2xl font-bold mb-4">Watch Our Promotional Video</h2>
         <video controls className="w-full h-full rounded-2xl"
           src={SampleVideo}
           autoPlay
@@ -158,16 +224,16 @@ const Landing = () => {
       </motion.div>
 
       {/* Blog section */}
-      <div className="grid grid-cols-4 gap-4 mt-8 h-96">  {/* Set up a 12-column grid */}
-        {/* Large Image (spans 6 columns) */}
-        <button className="col-span-2 h-96 bg-gray-200 rounded-lg overflow-hidden shadow-md hover:bg-gray-100 transition duration-300">
+      <div className="grid grid-cols-4 gap-4 mt-8">  {/* Set up a 4-column grid */}
+        {/* Large Box (spans 2 columns) */}
+        <button className="col-span-2 h-max-[200px] object-cover bg-gray-200 rounded-lg overflow-hidden shadow-md hover:bg-gray-100 transition duration-300">
           <div className='flex flex-col items-center justify-between bg-transparent'>
             <p className='text-gray-700 bg-transparent'>This is a travel blog</p> 
           </div>
           <img src={Blog} alt="Large" className="w-full h-full object-cover" /> 
         </button>
 
-        {/* Card Container (spans 6 columns, fixed height) */}
+        {/* Card Container (spans 2 columns, fixed height) */}
         <div className="col-span-2 flex flex-col gap-4 pb-4 h-96 overflow-hidden">  {/* Fixed height with overflow handling */}
 
           {/* Read More Box */}
@@ -185,6 +251,7 @@ const Landing = () => {
         </div>
       </div>
 
+      {/* FAQ */}
       <motion.div className='p-4 mt-8 bg-gray-200 rounded-2xl'
         variants={fadeInAnimationVariants}
         initial="initial"
@@ -211,6 +278,18 @@ const Landing = () => {
         cancellation options for most bookings, allowing you to cancel or modify your reservation within a specified 
         timeframe without incurring any penalties. Please refer to the terms and conditions of your booking or contact our 
         customer support for specific details." />
+      </motion.div>
+
+      {/* Destinations section */}
+      <motion.div
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{
+          once: true,
+        }}
+        >
+      
       </motion.div>
 
 
