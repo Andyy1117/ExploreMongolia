@@ -3,7 +3,7 @@ import Accordion from '../components/Accordian';
 import { motion } from 'framer-motion';
 
 import HeroImage from '../assets/Hero1.jpg';
-import HeroText from '../assets/Text1.svg';
+//import HeroText from '../assets/Text1.svg';
 import Promo from '../assets/Promo1.webp';
 import Blog from '../assets/Blog1.jpg';
 import C1 from '../assets/C1.jpg';
@@ -13,6 +13,7 @@ import C4 from '../assets/C4.jpg';
 import SampleVideo from '../assets/sample.mp4';
 
 import '../styles/custom.css';
+import { testimonials } from '../constants/data';
 
 
 
@@ -46,14 +47,15 @@ const Landing = () => {
           hidden: {opacity: 0, x: -50},
           visible: {opacity: 1, x: 0,}
         }}>
-        <h1 className="text-transparent bg-clip-text text-5xl mt-8 font-black text-center mb-4 bg-gradient-to-r from-black to-indigo-700">Where to?</h1>
+        <h1 className="text-5xl mt-8 font-black text-center ">Your
+        <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-700'> Journey</span> Starts Here</h1>
       </motion.div>
       
       {/* Search bar */}
       <div className='flex w-full items-center justify-center mb-4 mt-4'>
         <input
           type="text"
-          placeholder="Search for your destination"
+          placeholder="Search for your destination"s
           className="search-bar w-4/5 py-2 border rounded-md shadow-sm mr-4"
         />
         <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md">
@@ -62,7 +64,7 @@ const Landing = () => {
       </div>
 
       {/* Hero section */}
-      <motion.div className="hero-container overflow-hidden relative"
+      <motion.div className="hero-container overflow-hidden relative w-96px md-w-full"
         variants={fadeInAnimationVariants}
         initial="initial"
         whileInView="animate"
@@ -73,17 +75,16 @@ const Landing = () => {
         <img
           src={HeroImage} 
           alt = "Hero"
-          className="hero-image w-full h-full object-cover rounded-2xl mt-4" // Rounded bottom corners
+          className="hero-image w-full h-full object-cover rounded-2xl mt-4" 
         />
         <div className="text-overlay">
           <div style={{ marginTop: '-100px' }}> 
-            <img src={HeroText} alt="text.svg" style={{ width: '500px' }} />
-            {/* Text */} 
-            <p className="w-[834px] mt-4 font-light text-[#f1f1f1] text-[20px] tracking-[0.44px] leading-[normal]">
-                    We offer tailored solutions, providing you with exactly what you need while acting 
-                    <br/> as your personal travel consultant for exploring Mongolia's unique and 
-                    <br/> extraordinary destinations.
+            <p className='gap-2 font-roboto font-thin'>
+              From the Gobi 
+              <br/> Desert to the Altai
+              <br/> Mountains
             </p>
+            <p className='font-light'>EXPLORE<span className='font-bold'>MONGOLIA.</span></p>
           </div>
           <div className='flex mt-4'>
             <button className="bg-black hover:bg-gray-500 text-white text-sm font-bold  py-2 px-4 rounded mr-4 w-52">Book</button>
@@ -93,7 +94,7 @@ const Landing = () => {
       </motion.div>
 
       {/* Featured Destinations */}
-      <motion.div className='destinations mt-8
+      <motion.div className='destinations mt-8'
         initial="hidden"
         whileInView="visible"
         viewport={{once: true, amount: 0.5}}
@@ -101,11 +102,11 @@ const Landing = () => {
         variants={{
           hidden: {opacity: 0, x: -50},
           visible: {opacity: 1, x: 0,}
-        }}>'
+        }}
         >
-      <h2 className='flex items-center justify-center text-2xl font-bold mb-4'>Featured Destinations</h2>
+      <h2 className='flex items-center justify-center text-3xl font-bold mb-4'>Featured Destinations</h2>
         
-        <div className='max-w-[1640px] mx-auto p-4 py-4 grid md:grid-cols-4 gap-6'>
+        <div className='max-w-[1640px] mx-auto p-4 py-4 grid sm:grid-cols-2 md:grid-cols-4 gap-6'>
           {/* Card */}
           <div className='relative rounded-xl overflow-hidden object-cover' style={{ width: '300px', height: '300px' }}>
             {/* Overlay */}
@@ -152,6 +153,69 @@ const Landing = () => {
 
         </div>
       </motion.div>
+
+      {/* Popular festivals */}
+
+      <motion.div className='festivals mt-8'
+      initial="hidden"
+      whileInView="visible"
+      viewport={{once: true, amount: 0.5}}
+      transition={{ duration: 0.5 }}
+      variants={{
+        hidden: {opacity: 0, x: -50},
+        visible: {opacity: 1, x: 0,}
+      }}
+      >
+        <h2 className='flex items-center justify-center text-3xl font-bold mb-4'>Popular Festivals</h2>
+        
+        <div className='max-w-[1640px] mx-auto p-4 py-4 grid sm:grid-cols-2 md:grid-cols-4 gap-6'>
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden object-cover' style={{ width: '300px', height: '300px' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white place-items-baseline'>
+              <p className='font-bold text-2xl px-2 pt-4'>Naadam</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C1}
+                alt="" />
+          </div>
+
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden' style={{ width: '300px', height: '300px', paddingBottom: '100%' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white'>
+              <p className='font-bold text-2xl px-2 pt-4'>Tsagaan Sar</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C2}
+                alt="" />
+          </div>
+
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden' style={{ width: '300px', height: '300px' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white'>
+              <p className='font-bold text-2xl px-2 pt-4'>Golden Eagle Festival</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C3}
+                alt="" />
+          </div>
+
+          {/* Card */}
+          <div className='relative rounded-xl overflow-hidden' style={{ width: '300px', height: '300px' }}>
+            {/* Overlay */}
+            <div className='absolute w-full h-full bg-black/50 rounded-xl text-white'>
+              <p className='font-bold text-2xl px-2 pt-4'>Wrestling</p>
+            </div>
+            <img className='max-h-[200px] md:max-h-[300px] w-full object-cover rounded-xl '
+                src={C4}
+                alt="" />
+          </div>
+        </div>
+      </motion.div>
+
+
 
 
       {/* Promotional video section */}
@@ -280,8 +344,8 @@ const Landing = () => {
         customer support for specific details." />
       </motion.div>
 
-      {/* Destinations section */}
-      <motion.div
+      {/* Testimonials */}
+      <motion.div className='mt-20 tracking-wide'
         variants={fadeInAnimationVariants}
         initial="initial"
         whileInView="animate"
@@ -289,8 +353,34 @@ const Landing = () => {
           once: true,
         }}
         >
-      
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-10 lg:my-20">
+        What People are saying
+          </h2>
+          <div className="flex flex-wrap justify-center">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 py-2">
+                <div className="bg-neutral-200 rounded-md p-6 text-md border border-neutral-300 font-thin">
+                  <p>{testimonial.text}</p>
+                  <div className="flex mt-8 items-start">
+                    <img
+                      className="w-12 h-12 mr-6 rounded-full border border-neutral-300"
+                      src={testimonial.image}
+                      alt=""
+                    />
+                    <div>
+                      <h6>{testimonial.user}</h6>
+                      <span className="text-sm font-normal italic text-neutral-600">
+                        {testimonial.company}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
       </motion.div>
+
+
 
 
 
