@@ -78,7 +78,7 @@ const Landing = () => {
           className="hero-image w-full h-full object-cover rounded-2xl mt-4" 
         />
         <div className="text-overlay">
-          <div className='xl:mt-[-20px] sm:mx-auto'> 
+          <div className='xl:mt-[-20px]'> 
             <p className='hidden gap-2 font-thin md:block md:text-4xl lg:text-7xl md:mt-4'>
               From the Gobi 
               <br/> Desert to the Altai
@@ -86,7 +86,7 @@ const Landing = () => {
             </p>
             <p className='font-light mt-2md:text-5xl lg:text-7xl text-lg'>EXPLORE<span className='font-black md:text-7xl md:text-5xl text-lg'>MONGOLIA.</span></p>
           </div>
-          <div className='flex mt-4 md:mt-8 lg:mt-12 xl:mt-16 sm:items-center'>
+          <div className='flex mt-4 md:mt-8 lg:mt-12 xl:mt-16'>
             <button className="bg-black hover:bg-gray-500 text-white text-sm font-bold  py-2 px-4 rounded mr-4 w-16 md:w-52">Book</button>
             <button className="bg-white hover:bg-gray-500 text-black text-sm font-bold py-2 px-4 rounded w-20 md:w-56">Explore</button>
           </div>
