@@ -56,7 +56,7 @@ const Landing = () => {
         <input
           type="text"
           placeholder="Search for your destination"s
-          className="search-bar w-4/5 py-2 border rounded-md shadow-sm mr-4"
+          className="search-bar w-4/5 p-2 border rounded-md shadow-sm mr-4"
         />
         <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md">
             Search
@@ -78,15 +78,15 @@ const Landing = () => {
           className="hero-image w-full h-full object-cover rounded-2xl mt-4" 
         />
         <div className="text-overlay">
-          <div style={{ marginTop: '-100px' }}> 
-            <p className='gap-2 font-thin md:text-7xl text-xl'>
+          <div className='xl:mt-[-20px]'> 
+            <p className='hidden gap-2 text-lg font-thin md:block md:text-4xl lg:text-7xl md:mt-4'>
               From the Gobi 
               <br/> Desert to the Altai
               <br/> Mountains
             </p>
-            <p className='font-light md:text-7xl text-xl'>EXPLORE<span className='font-black md:text-7xl text-xl'>MONGOLIA.</span></p>
+            <p className='font-light text-lg mt-2 md:text-5xl lg:text-7xl'>EXPLORE <span className='font-black text-lg md:text-5xl lg:text-7xl'>MONGOLIA.</span></p>
           </div>
-          <div className='flex mt-4'>
+          <div className='flex mt-4 md:mt-8 lg:mt-12 xl:mt-16'>
             <button className="bg-black hover:bg-gray-500 text-white text-sm font-bold  py-2 px-4 rounded mr-4 w-16 md:w-52">Book</button>
             <button className="bg-white hover:bg-gray-500 text-black text-sm font-bold py-2 px-4 rounded w-20 md:w-56">Explore</button>
           </div>
