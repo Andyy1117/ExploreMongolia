@@ -30,12 +30,12 @@ const SigninPage = () => {
   return (
     <div className="flex h-screen">
       {/* Left Half */}
-      <div className="flex-1 flex items-center justify-center p-8">
+      <div className="flex-1 flex items-center justify-center p-16">
         <div className="text-center">
           <Link to='/' className='absolute top-0 left-4 mt-4 text-blue-500 block'>
             Back
           </Link>
-          <img src={Logo} alt="Logo.svg" style={{ width: '300px', opacity: 1 }} className='mx-auto mb-8'/>
+          <img src={Logo} alt="Logo.svg" style={{ width: '300px', opacity: 1 }} className='mx-auto m-8 mr-8'/>
           
           {/* Your sign-in form */}
           <form onSubmit={handleFormSubmit}>

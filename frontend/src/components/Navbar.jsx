@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../assets/ExploreMongolia.svg';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 
-const Navbar = () => {
+const Navbar = ({onNavbarClick}) => {
   const [showMenu, setShowMenu] = useState(false);  // State for menu visibility
   const [logo, showLogo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation()
+  const [showNavbar, setShowNavbar] = useState(true)
 
+
+  const [nav, setNav] = useState(false)
+  const handleClick = ( page ) => {
+    setNav(false);
+    onNavbarClick( page );
+  };
+
+  useEffect(() => {
+    if (location.pathname === '/signin' || location.pathname === '/signup') {
+      setShowNavbar(false)
+    } else {
+      setShowNavbar(true)
+    }
+  }, [location])
   /**
    * The useEffect hook in React is used to monitor the scroll position of the window and update a
    * state variable based on whether the user has scrolled or not.
@@ -58,9 +75,9 @@ const Navbar = () => {
             </button>
           </li>
           <li>
-            <button className='bg-black text-white px-4 py-2 rounded-full ml-4'>
+            <Link to='/signin' className='bg-black text-white px-4 py-2 rounded-full ml-4'>
                 Register
-            </button>
+            </Link>
           </li>
         </ul>
         
@@ -87,9 +104,9 @@ const Navbar = () => {
                 </li>
                 <div className='flex flex-col'>
                     <li>
-                        <button className='bg-black text-white px-4 py-2 rounded-full ml-4'>
+                        <Link to='/signin' className='bg-black text-white px-4 py-2 rounded-full ml-4'>
                             Register
-                        </button>
+                        </Link>
                     </li>
                 </div>
             </ul>

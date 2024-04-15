@@ -4,8 +4,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 import Landing from './pages/Landing'
-import Signin from './pages/signin'
-import Signup from './pages/signup'
+import SigninPage from './pages/signin'
+import SignupPage from './pages/signup'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Landing');
@@ -19,8 +19,8 @@ function App() {
       <Navbar onNavbarClick={handleNavbarClick} />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
